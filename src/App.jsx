@@ -10,19 +10,21 @@ const App = () => {
       return;
     }
 
-    setList([...list, { id: uuidv4(), task: taskValue.current.value}]);
+    setList([...list, { id: uuidv4(), task: taskValue.current.value }]);
   };
 
   return (
     <div>
-      <input ref={taskValue} placeholder="O que tenho para fazer..." />
-      <button onClick={addTask}>Adicionar</button>
+      <div>
+        <input ref={taskValue} placeholder="O que tenho para fazer..." />
+        <button onClick={addTask}>Adicionar</button>
 
-      <ul>
-        {list.map((item) => (
-          <li key={item.id}>{item.task}</li>
-        ))}
-      </ul>
+        <ul>
+          {list.map((item) => (
+            <li key={item.id}>{item.task}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
