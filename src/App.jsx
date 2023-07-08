@@ -1,15 +1,22 @@
+import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const App = () => {
-  const list = [
-    { id: uuidv4(), task: "Levar o Ted para passear" },
-    { id: uuidv4(), task: "Ler um livro sobre programação" },
-  ];
-  
+  const [list, setList] = useState([]);
+  const taskValue = useRef();
+
+  const addTask = () => {
+    if (taskValue.current.value.trim() === "") {
+      return;
+    }
+
+    setList([...list, { id: uuidv4(), task: taskValue.current.value}]);
+  };
+
   return (
     <div>
-      <input placeholder="O que tenho para fazer..." />
-      <button>Adicionar</button>
+      <input ref={taskValue} placeholder="O que tenho para fazer..." />
+      <button onClick={addTask}>Adicionar</button>
 
       <ul>
         {list.map((item) => (
