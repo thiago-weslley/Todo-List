@@ -1,8 +1,8 @@
 import styled from "styled-components";
+import { BsFillBookmarkCheckFill, BsFillTrash3Fill } from "react-icons/bs";
 
 export const Container = styled.main`
   margin: 0 auto;
-  margin-top: 10rem;
   background: #fff;
   max-width: 55rem;
   width: 95%;
@@ -70,3 +70,20 @@ export const Task = styled.div`
     word-wrap: break-word;
   }
 `;
+
+export const Title = styled.h1`
+    margin-top: 3.7rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 22px;
+`
+
+export const Check = styled(BsFillBookmarkCheckFill)`
+    cursor: pointer;
+    font-size: 2rem;
+`
+
+export const Trash = styled(BsFillTrash3Fill)`
+    cursor: pointer;
+    font-size: 2rem;
+`

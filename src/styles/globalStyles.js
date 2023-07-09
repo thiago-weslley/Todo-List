@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
+        padding-top: 10rem;
         height: 100vh;
         width: 100vw;
         font-size: 1.6rem;
