@@ -12,7 +12,10 @@ const App = () => {
       return;
     }
 
-    setList([...list, { id: uuidv4(), task: taskValue.current.value, finished: false }]);
+    setList([
+      ...list,
+      { id: uuidv4(), task: taskValue.current.value, finished: true },
+    ]);
   };
 
   return (
@@ -22,15 +25,15 @@ const App = () => {
         <Button onClick={addTask}>Adicionar</Button>
       </InputTask>
       <ul>
-        <Task>
-          {list.map((item) => (
-            <li key={item.id}>
+        {list.map((item) => (
+          <Task isFinished={item.finished} key={item.id}>
+            <li>
               <BsFillBookmarkCheckFill />
-              {item.task}
+              <span>{item.task}</span>
               <BsFillTrash3Fill />
             </li>
-          ))}
-        </Task>
+          </Task>
+        ))}
       </ul>
     </Container>
   );
