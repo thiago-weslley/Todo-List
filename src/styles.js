@@ -61,10 +61,12 @@ export const Task = styled.div`
     box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     min-height: 6rem;
+    user-select: none;
   }
 
   span {
     width: 80%;
     text-align: center;
+    word-wrap: break-word;
   }
 `;

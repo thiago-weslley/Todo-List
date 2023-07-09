@@ -14,8 +14,16 @@ const App = () => {
 
     setList([
       ...list,
-      { id: uuidv4(), task: taskValue.current.value, finished: true },
+      { id: uuidv4(), task: taskValue.current.value, finished: false },
     ]);
+  };
+
+  const taskCompleted = (id) => {
+    const newList = list.map((item) =>
+      item.id === id ? { ...item, finished: !item.finished } : item
+    );
+
+    setList(newList);
   };
 
   return (
@@ -28,7 +36,7 @@ const App = () => {
         {list.map((item) => (
           <Task isFinished={item.finished} key={item.id}>
             <li>
-              <BsFillBookmarkCheckFill />
+              <BsFillBookmarkCheckFill onClick={() => taskCompleted(item.id)} />
               <span>{item.task}</span>
               <BsFillTrash3Fill />
             </li>
