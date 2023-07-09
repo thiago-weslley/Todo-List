@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Container, InputTask, Input, Button } from "./styles";
+import { BsFillBookmarkCheckFill, BsFillTrash3Fill } from "react-icons/bs";
+import { Container, InputTask, Input, Button, Task } from "./styles";
 
 const App = () => {
   const [list, setList] = useState([]);
@@ -11,7 +12,7 @@ const App = () => {
       return;
     }
 
-    setList([...list, { id: uuidv4(), task: taskValue.current.value }]);
+    setList([...list, { id: uuidv4(), task: taskValue.current.value, finished: false }]);
   };
 
   return (
@@ -21,9 +22,15 @@ const App = () => {
         <Button onClick={addTask}>Adicionar</Button>
       </InputTask>
       <ul>
-        {list.map((item) => (
-          <li key={item.id}>{item.task}</li>
-        ))}
+        <Task>
+          {list.map((item) => (
+            <li key={item.id}>
+              <BsFillBookmarkCheckFill />
+              {item.task}
+              <BsFillTrash3Fill />
+            </li>
+          ))}
+        </Task>
       </ul>
     </Container>
   );

@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
         height: 100vh;
         width: 100vw;
         font-size: 1.6rem;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     body::after {
